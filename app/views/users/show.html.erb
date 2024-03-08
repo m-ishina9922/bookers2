@@ -1,0 +1,12 @@
+<%= render 'books/new' %>
+
+<div>
+  <h1>User Info</h1>
+   <%= image_tag @user.get_profile_image(100, 100) %>
+  <h4>name</h4>
+   <%= @user.name %>
+  <h4>introduction</h4>
+   <%= @user.introduct %>
+   <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+
+</div>
