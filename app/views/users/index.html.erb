@@ -1,16 +1,38 @@
-<%= render 'books/new' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-3">
+     <div>
+      <h2>User Info</h2>
+         <div><%= image_tag current_user.get_profile_image(100, 100) %></div>
+         <table class="table">
+           <tr><th>name</th><th><%= current_user.name %></th></tr>
+           <tr class="p-5"><th>introduction</th><th><%= current_user.introduct %></th></tr>
+         </table>
+           <a><%= link_to(edit_user_path(current_user), class: "fa-regular fa-pen-to-square btn btn-outline-secondary btn-block") do %></a>
+              <% end %>
 
-<h1>Users</h1>
- <table>
-   <tr>
-     <th>image</th><th>name</th>
-   </tr>
-   <% @user.each do |user| %>
-   <tr>
-     <td><%= image_tag user.get_profile_image(100,100) %></td>
-     <td><%= user.name %></td>
-     <td><%= link_to "Show", user_path(user.id) %></td>
-   </tr>
- </table>
+         <div>
+           <%= render 'books/new' %>
+         </div>
+     </div>
+    </div>
 
-<% end %>
+    <div class="col-md-8 offset-md-1 mt-3">
+      <h2>Users</h2>
+     <table class="table">
+       <tr><th>image</th><th>name</th><th></th></tr>
+
+       <% @user.each do |user| %>
+
+       <tr>
+         <td><%= image_tag user.get_profile_image(100,100) %></td>
+         <td><%= user.name %></td>
+         <td><%= link_to "Show", user_path(user.id) %></td>
+       </tr>
+       <% end %>
+      </table>
+
+
+     </div>
+  </div>
+</div>

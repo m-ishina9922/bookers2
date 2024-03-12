@@ -1,11 +1,42 @@
-<%= render 'books/new' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-3">
+     <div>
+       <h2>User Info</h2>
+        <div><%= image_tag @book.user.get_profile_image(100, 100) %></div>
+        <table class="table table-hover table-inverse">
+         <tr><th>name</th><th><%= @book.user.name %></th></tr>
+         <tr class="p-5"><th>introduction</th><th><%= @book.user.introduct %></th></tr>
+        </table>
+     </div>
+         <a><%= link_to(edit_user_path(@book.user), class: "fa-regular fa-pen-to-square btn btn-outline-secondary btn-block") do %></a>
+            <% end %>
+     <div>
+      <%= render 'books/new' %>
+     </div>
+    </div>
 
-<h1>Book detail</h1>
 
-<%= @book.title %>
 
-<%= @book.body %>
 
-<%= link_to "edit", edit_book_path(@book.id) %>
 
-<%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+   <div class="col-md-8 offset-md-1 mt-3">
+      <h2>Book detail</h2>
+
+      <table class="table">
+        <tr>
+          <td><%= image_tag @book.user.get_profile_image(100,100) %>
+              <%= link_to @book.user.name, user_path(@book.user) %></td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <td><%= link_to "Edit", edit_book_path(@book.id), class: "bg-success text-white border-0 rounded p-1" %></td>
+          <td><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "bg-danger text-white border-0 rounded p-1" , "data-confirm" => "本当に削除しますか？"  %></td>
+        </tr>
+      </table>
+          <a></a>
+
+
+     </div>
+
+  </div>
+</div>
