@@ -1,19 +1,32 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12 mt-3">
+       <% if @book.errors.any? %>
+       <h2><%= @book.errors.count %> errors prohibited this obj from being saved:</h2>
+        <ul>
+         <% @book.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
+        </ul>
+       <% end %>
+     </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-3 mt-3">
-     <div>
+      <div>
        <h2>User Info</h2>
         <div><%= image_tag current_user.get_profile_image(100, 100) %></div>
         <table class="table table-hover table-inverse">
          <tr><th>name</th><th><%= current_user.name %></th></tr>
-         <tr class="p-5"><th>introduction</th><th><%= current_user.introduct %></th></tr>
+         <tr class="p-5"><th>introduction</th><th><%= current_user.introduction %></th></tr>
         </table>
-     </div>
+      </div>
          <a><%= link_to(edit_user_path(current_user), class: "fa-regular fa-pen-to-square btn btn-outline-secondary btn-block") do %></a>
             <% end %>
-     <div>
-      <%= render 'books/new' %>
-     </div>
+      <div>
+       <%= render 'books/new' %>
+      </div>
     </div>
 
     <div class="col-md-8 offset-md-1 mt-3">
