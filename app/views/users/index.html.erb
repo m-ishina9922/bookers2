@@ -8,7 +8,7 @@
            <tr><th>name</th><th><%= current_user.name %></th></tr>
            <tr class="p-5"><th>introduction</th><th><%= current_user.introduction %></th></tr>
          </table>
-           <a><%= link_to(edit_user_path(current_user), class: "fa-regular fa-pen-to-square btn btn-outline-secondary btn-block") do %></a>
+           <a><%= link_to(edit_user_path(current_user), class: "fa-solid fa-user-gear") do %></a>
               <% end %>
 
          <div>

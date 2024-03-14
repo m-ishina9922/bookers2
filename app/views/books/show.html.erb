@@ -9,7 +9,7 @@
          <tr class="p-5"><th>introduction</th><th><%= @book.user.introduction %></th></tr>
         </table>
      </div>
-         <a><%= link_to(edit_user_path(@book.user), class: "fa-regular fa-pen-to-square btn btn-outline-secondary btn-block") do %></a>
+         <a><%= link_to(edit_user_path(@book.user), class: "fa-solid fa-user-gear") do %></a>
             <% end %>
      <div>
       <%= render 'books/new' %>
@@ -21,12 +21,15 @@
 
       <table class="table">
         <tr>
-          <td><%= image_tag @book.user.get_profile_image(100,100) %>
+          <td><%= link_to image_tag(@book.user.get_profile_image(100,100)), user_path(@book.user) %>
               <%= link_to @book.user.name, user_path(@book.user) %></td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
+         <% if current_user.id == @book.user.id  %>
           <td><%= link_to "Edit", edit_book_path(@book.id), class: "bg-success text-white border-0 rounded p-1" %></td>
           <td><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "bg-danger text-white border-0 rounded p-1" , "data-confirm" => "本当に削除しますか？"  %></td>
+         <% else %>
+         <% end %>
         </tr>
       </table>
           <a></a>
@@ -36,3 +39,6 @@
 
   </div>
 </div>
+
+
+fa-solid fa-user-gear
