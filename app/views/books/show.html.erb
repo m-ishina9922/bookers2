@@ -4,7 +4,7 @@
      <div>
        <h2>User Info</h2>
         <div><%= image_tag @book.user.get_profile_image(100, 100) %></div>
-        <table class="table table-hover table-inverse">
+        <table class="table  table-inverse">
          <tr><th>name</th><th><%= @book.user.name %></th></tr>
          <tr class="p-5"><th>introduction</th><th><%= @book.user.introduction %></th></tr>
         </table>
@@ -28,7 +28,7 @@
         <tr>
           <td><%= link_to image_tag(@book.user.get_profile_image(100,100)), user_path(@book.user) %><br>
               <%= link_to @book.user.name, user_path(@book.user) %></td>
-          <td><%= @book.title %></td>
+          <td><%= link_to @book.title, book_path(@book.id) %></td>
           <td><%= @book.body %></td>
          <% if current_user.id == @book.user.id  %>
           <td><%= link_to "Edit", edit_book_path(@book.id), class: "bg-success text-white border-0 rounded p-1" %></td>
