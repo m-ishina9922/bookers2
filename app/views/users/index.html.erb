@@ -8,15 +8,16 @@
            <tr><th>name</th><th><%= current_user.name %></th></tr>
            <tr class="p-5"><th>introduction</th><th><%= current_user.introduction %></th></tr>
          </table>
-           <a><%= link_to(edit_user_path(current_user), class: "fa-solid fa-user-gear") do %></a>
-              <% end %>
+      </div>
 
-         <div>
-           <%= render 'books/new' %>
-         </div>
-     </div>
+        <div type="button">
+          <%= link_to(edit_user_path(current_user), class: "btn btn-outline-secondary btn-block") do %>
+             <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        </div>
+
+        <%= render 'books/new' %>
     </div>
-
     <div class="col-md-8 offset-md-1 mt-3">
       <h2>Users</h2>
      <table class="table">
@@ -31,8 +32,7 @@
        </tr>
        <% end %>
       </table>
-
-
      </div>
+
   </div>
 </div>

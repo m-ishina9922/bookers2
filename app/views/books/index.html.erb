@@ -22,12 +22,16 @@
          <tr class="p-5"><th>introduction</th><th><%= current_user.introduction %></th></tr>
         </table>
       </div>
-         <a><%= link_to(edit_user_path(current_user), class: "fa-solid fa-user-gear") do %></a>
-            <% end %>
-      <div>
-       <%= render 'books/new' %>
-      </div>
+
+        <div type="button">
+          <%= link_to(edit_user_path(current_user), class: "btn btn-outline-secondary btn-block") do %>
+             <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        </div>
+
+         <%= render 'books/new' %>
     </div>
+
 
     <div class="col-md-8 offset-md-1 mt-3">
       <h2>Books</h2>
